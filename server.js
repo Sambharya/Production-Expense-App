@@ -24,14 +24,6 @@ app.use(express.json());
 app.use("/api/v1/users", require("./routes/userRoute"));
 app.use("/api/v1/transections", require("./routes/transectionRoutes"));
 
-// Static files
-const buildPath = path.join(__dirname, './client/build');
-console.log(`Serving static files from: ${buildPath}`);
-app.use(express.static(buildPath));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(buildPath, 'index.html'));
-});
 
 // Port
 const PORT = process.env.PORT || 8080;
